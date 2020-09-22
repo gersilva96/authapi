@@ -6,6 +6,6 @@ var _app = _interopRequireDefault(require("./app"));
 
 require("./database");
 
-_app["default"].listen(3000, function () {
-  console.log("Server listen on port", 3000);
+_app["default"].listen(process.env.PORT, function () {
+  console.log("Server listen on port", process.env.PORT);
 });

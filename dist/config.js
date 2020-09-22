@@ -15,7 +15,7 @@ var initialConfig = function initialConfig() {
 
 exports.initialConfig = initialConfig;
 var tokenConfig = {
-  SECRET: process.env.SECRET_KEY | "clavesecretadelproyecto",
+  SECRET: process.env.SECRET_KEY || "clavesecretadelproyecto",
   EXPIRES: 86400
 };
 exports.tokenConfig = tokenConfig;
