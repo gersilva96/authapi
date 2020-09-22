@@ -1,6 +1,6 @@
 import User from "../models/User";
 import jwt from "jsonwebtoken";
-import config from "../config";
+import { tokenConfig } from "../config";
 import Role from "../models/Role";
 
 const authController = {
@@ -22,8 +22,8 @@ const authController = {
             const savedUser = await newUser.save();
             const token = jwt.sign({
                 id: savedUser._id
-            }, config.SECRET, {
-                expiresIn: 86400
+            }, tokenConfig.SECRET, {
+                expiresIn: tokenConfig.EXPIRES
             });
             res.json({token});
         } catch (error) {
@@ -43,8 +43,8 @@ const authController = {
             }
             const token = jwt.sign({
                 id: existingUser._id
-            }, config.SECRET, {
-                expiresIn: 86400
+            }, tokenConfig.SECRET, {
+                expiresIn: tokenConfig.EXPIRES
             });
             res.json({token});
         } catch (error) {

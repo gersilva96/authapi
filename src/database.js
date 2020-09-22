@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost/authapi", {
+mongoose.connect(process.env.URLDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

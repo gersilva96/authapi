@@ -1,3 +1,4 @@
+import { initialConfig } from "./config";
 import express from "express";
 import morgan from "morgan";
 import pkg from '../package.json';
@@ -6,12 +7,16 @@ import productsRouter from "./routes/products.routes";
 import authRouter from "./routes/auth.routes";
 import usersRouter from "./routes/users.routes";
 import "regenerator-runtime";
+import dotenv from "dotenv";
+
+initialConfig();
 
 const app = express();
 createRoles();
 
 app.set("pkg", pkg);
 
+dotenv.config();
 app.use(express.json());
 app.use(morgan("dev"));
 

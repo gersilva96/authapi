@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import config from "../config";
+import { tokenConfig } from "../config";
 import User from "../models/User";
 import Role from "../models/Role";
 
@@ -7,7 +7,7 @@ export const verifyToken = async (req, res, next) => {
     try {
         const token = req.headers["x-access-token"];
         if (!token) return res.status(403).json({ error: { message: "Token no provisto" } });
-        const decodedToken = jwt.verify(token, config.SECRET);
+        const decodedToken = jwt.verify(token, tokenConfig.SECRET);
         req.userId = decodedToken.id;
         const existingUser = await User.findById(req.userId, { password: 0 }).populate("roles");
         if (!existingUser) return res.status(400).json({ error: { message: "El usuario no existe" } });
