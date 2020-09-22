@@ -9,3 +9,5 @@
 - Incluye un simple CRUD de productos, pero se enfoca en la autenticación con JWT
 
 - El despligue se realizó en Heroku y MongoDB Atlas para la base de datos
+
+- URL del despliegue: [https://authapi-gersilva.herokuapp.com/](https://authapi-gersilva.herokuapp.com/)
