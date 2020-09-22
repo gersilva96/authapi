@@ -7,6 +7,6 @@ export const initialConfig = () => {
 }
 
 export const tokenConfig = {
-    SECRET: process.env.SECRET_KEY | "clavesecretadelproyecto",
+    SECRET: process.env.SECRET_KEY || "clavesecretadelproyecto",
     EXPIRES: 86400
 }
